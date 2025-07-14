@@ -1,0 +1,5 @@
+id, username, password, nickname, balance, admin
+0, lai0602, urmom, Jace, 10, true
+1, louis, 123456, Louis, 100, true
+2, hei0727, 654321, Jeremy, -10, false
+3, mum, love, Mum, 99999, true
