@@ -28,7 +28,7 @@
         <script src="https://unpkg.com/lucide@latest"></script>
         <!-- Lucide end -->
 
-        <style>
+        <!-- <style>
             .navbar-logo {
                 --size: 30px;
 
@@ -40,17 +40,21 @@
                 position: relative;
                 bottom: 3px;
             }
-        </style>
+        </style> -->
     </head>
     <body>
         <div class="container">
             <!-- nav bar -->
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <div>
-                        <i data-lucide="landmark" class="navbar-logo"></i>
-                        <a class="navbar-brand" href="/">Banking System</a>
-                    </div>
+                    <a class="navbar-brand" href="/">
+                        <i
+                            data-lucide="landmark"
+                            class="w-100 h-100"
+                            aria-label="Banking System"
+                        ></i>
+                    </a>
+                    <a class="navbar-brand" href="/">Banking System</a>
                     <button
                         class="navbar-toggler"
                         type="button"
@@ -93,6 +97,7 @@
                                 >
                                     <img
                                         src="assets/profile icons/0.png"
+                                        class="animate__animated animate__wobble"
                                         style="
                                             aspect-ratio: 1 / 1;
                                             height: 100%;
@@ -103,11 +108,11 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a class="dropdown-item" href="/profile"
-                                            >Profile</a
+                                            >Your profile</a
                                         >
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="/profile"
+                                        <a class="dropdown-item" href="/aura"
                                             >Your aura</a
                                         >
                                     </li>
@@ -119,30 +124,50 @@
                 </div>
             </nav>
             <!-- navbar end -->
+
+            <!-- Main text -->
             <div class="row">
-                <h1 id="greeting">Greeting</h1>
-                <h1 id="status">Status</h1>
+                <h1 class="animate__animated animate__bounce" id="greeting">
+                    Greeting
+                </h1>
+                <h1 class="animate__animated animate__jello" id="status">
+                    Status
+                </h1>
             </div>
+            <!-- Main text end -->
+
+            <!-- Main buttons -->
             <div class="row">
-                <button
-                    class="btn btn-secondary"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#depositModal"
-                >
-                    Deposit money
-                </button>
+                <div class="d-grid gap-2 d-md-block">
+                    <button
+                        class="btn btn-secondary animate__animated animate__pulse"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#depositModal"
+                    >
+                        Deposit money into bank account
+                    </button>
+                    <button
+                        class="btn btn-secondary animate__animated animate__pulse"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#withdrawModal"
+                    >
+                        Withdraw money from bank account
+                    </button>
+                    <button
+                        class="btn btn-secondary animate__animated animate__pulse"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#sendModal"
+                    >
+                        Send money to another person
+                    </button>
+                </div>
             </div>
-            <div class="row">
-                <button class="btn btn-secondary" type="button">
-                    Withdraw money
-                </button>
-            </div>
-            <div class="row">
-                <button class="btn btn-secondary" type="button">
-                    Send money to another person
-                </button>
-            </div>
+            <!-- Main buttons end -->
+
+            <!-- Deposit modal -->
             <div
                 class="modal fade"
                 id="depositModal"
@@ -152,7 +177,7 @@
                 data-bs-keyboard="false"
             >
                 <div class="modal-dialog">
-                    <div class="modal-content">
+                    <div class="modal-content animate__animated animate__tada">
                         <div class="modal-header">
                             <h1 class="modal-title">Deposit money</h1>
                         </div>
@@ -161,7 +186,16 @@
                                 Enter the amount of money you want to deposit
                                 into your account:
                             </p>
-                            <input type="text" />
+                            <div class="form-floating">
+                                <input
+                                    class="form-control"
+                                    id="depositAmount"
+                                    placeholder="69"
+                                />
+                                <label for="depositAmount"
+                                    >Deposit amount</label
+                                >
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button
@@ -183,7 +217,78 @@
                     </div>
                 </div>
             </div>
+            <!-- Deposit modal end -->
+
+            <!-- Withdraw modal -->
+            <div
+                class="modal fade"
+                id="withdrawModal"
+                tabindex="-1"
+                aria-hidden="true"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+            >
+                <div class="modal-dialog">
+                    <div class="modal-content animate__animated animate__tada">
+                        <div class="modal-header">
+                            <h1 class="modal-title">Withdraw money</h1>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Enter the amount of money your want to withdraw
+                                from your account:
+                            </p>
+                            <div class="form-floating">
+                                <div
+                                    class="form-control"
+                                    id="withdrawAmount"
+                                    placeholder="69"
+                                ></div>
+                                <label for="withdrawAmount"></label>
+                            </div>
+                        </div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Withdraw modal end -->
+
+            <!-- Send modal -->
+            <div
+                class="modal fade"
+                id="sendModal"
+                tabindex="-1"
+                aria-hidden="true"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+            >
+                <div class="modal-dialog">
+                    <div class="modal-content animate__animated animate__tada">
+                        <div class="modal-header">
+                            <h1 class="modal-title">Send money</h1>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Enter the amount of money to send to the other
+                                person:
+                            </p>
+                            <div class="form-floating">
+                                <input
+                                    class="form-control"
+                                    id="sendAmount"
+                                    placeholder="69"
+                                />
+                                <label for="sendAmount">Send amount</label>
+                            </div>
+                        </div>
+                        <p>Choose the person to send the money to:</p>
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
         </div>
+        <!-- Send modal end -->
+
         <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
